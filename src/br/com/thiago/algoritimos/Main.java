@@ -18,12 +18,33 @@ public class Main {
 			System.out.println("Digite um numero");
 			int numero = scanner.nextInt();
 			numeros[i] = numero;
+		}	
+	
+		//Busca Linear
+		System.out.println("*** BUSCA LINEAR **");
+		System.out.println("Digite o número a ser pesquisado");
+		int alvo = scanner.nextInt();
+		int posicaoResultado = -1;
+		for (int i = 0; i < numeros.length; i++) {
+			if(numeros[i] == alvo) {
+				posicaoResultado = 1;
+			}
 		}
 		
-		for(int i = 0; i < numeros.length; i++) {
-			System.out.println(numeros[i]);
+		if(posicaoResultado < 0) {
+			System.out.println("Elemento não foi encontrado");
+		}else {
+			System.out.println(String.format("O número %d foi encontrado"
+					+ " na posicao %d", alvo, posicaoResultado));
 		}
+		System.out.println("Vetor");
+		imprimirArray(numeros);
 		scanner.close();
 	}
 
+	private static void imprimirArray(int[] array) {
+		for (int i = 0; i < array.length; i++) {
+			System.out.println(array[i]);
+		}
+	}
 }
