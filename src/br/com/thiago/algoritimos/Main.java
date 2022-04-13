@@ -28,6 +28,7 @@ public class Main {
 		for (int i = 0; i < numeros.length; i++) {
 			if(numeros[i] == alvo) {
 				posicaoResultado = 1;
+				break;
 			}
 		}
 		
@@ -37,8 +38,31 @@ public class Main {
 			System.out.println(String.format("O número %d foi encontrado"
 					+ " na posicao %d", alvo, posicaoResultado));
 		}
-		System.out.println("Vetor");
+		//fim busca linear
+		
+		System.out.println("Vetor desodernado");
 		imprimirArray(numeros);
+		
+		// ** Selection Sort
+		for (int i = 0; i <numeros.length; i++) {
+			int indiceMenor = i;
+			for (int j = i +1; j < numeros.length; j++){ 
+				if(numeros[j] < numeros[indiceMenor]) {
+					indiceMenor = j;
+				}
+				
+			}
+			int temp = numeros[indiceMenor];
+			numeros[indiceMenor] = numeros[i];
+			numeros[i] = temp;
+		}
+		
+		System.out.println("Vetor ordenado");
+		imprimirArray(numeros);
+		// ** FIM: Selection Sort
+		
+		//System.out.println("Vetor");
+		//imprimirArray(numeros);
 		scanner.close();
 	}
 
